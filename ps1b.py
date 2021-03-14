@@ -1,9 +1,9 @@
+
+
 n, B = list(map(int, input().strip().split()))
+
+
 T = 0
-
-# your code here
-
-
 
 sum1 = 0
 total = []
@@ -20,33 +20,37 @@ for i in range(1,n+1):
     p = (3**i) + 1   
     sum1 = p**j
     total.append(sum1)
+  
             
  
 boşliste= []
 left = 0
-right = 10000
+right = 1000000
 while left < right:
     
     T = (left + right) / 2
-    toplam = sum(total)*T   # sum of [64,25,28,1] times T means toplam
+    toplam = int(sum(total)*T)   # sum of [64,25,28,1] times T means                                                           toplam
     
     if toplam > B:
       
-      right = T        # I said if toplam is bigger than B we should look a 
-      boşliste.append(T)   # smaller number and for this reason ı said T = right
-    elif toplam < B:     #boşliste is just to see what numbers is in T but again 
-                         # it didn't work??
+      right = T            
+     
+      boşliste.append(T)   
+    
+    elif toplam < B:      
       left = T
     
-    else:  
-      boşliste.append(T)
-      break    
+    else:
+      break
+    
+    if left >= right:
+      T = -1
+      break
 
-
-print(total) 
-print(toplam)     
-print(min(boşliste))
-        
+if T > 10000:
+  T = -1
+else:
+  T = round(int(T)+1)
 
 # please do not modify the input and print statements
 # and make sure that your code does not have any other print statements
