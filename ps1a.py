@@ -30,6 +30,6 @@ for a in range(left,right):
     T += 1
 
     
-
-
+if T > 10000:
+  T = -1
 print(T)
